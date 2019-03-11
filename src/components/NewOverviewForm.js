@@ -10,15 +10,21 @@ class NewOverviewForm extends React.Component {
     children: PropTypes.oneOfType([
       PropTypes.arrayOf(PropTypes.node),
       PropTypes.node
-    ]).isRequired
+    ]),
+    onSubmit: PropTypes.func.isRequired
   }
 
   constructor (props) {
     super(props)
     this.state = {
+      username: '',
       userID: '',
       accessToken: ''
     }
+  }
+
+  handleUsernameInput = (event) => {
+    this.setState({ username: event.target.value })
   }
 
   handleUserIdInput = (event) => {
@@ -31,14 +37,25 @@ class NewOverviewForm extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    console.log(this.state.userID, this.state.accessToken)
-    // use this.state.userID and this.state.accessToken
+    this.props.onSubmit(this.state.username, this.state.userID, this.state.accessToken)
+
+    this.setState({ username: '', userID: '', accessToken: '' })
+    alert('Wohoo! Your Instagram account was successfully added.')
   }
 
   render () {
     return (
       <form onSubmit={this.handleSubmit}>
         {this.props.children}
+        <label>
+          Username:
+          <input
+            type="text"
+            value={this.state.username}
+            onChange={this.handleUsernameInput}
+            required
+          />
+        </label>
         <label>
           User ID:
           <input
@@ -57,7 +74,7 @@ class NewOverviewForm extends React.Component {
             required
           />
         </label>
-        <input type="submit" value="add" />
+        <button type="submit">Add</button>
       </form>
     )
   }

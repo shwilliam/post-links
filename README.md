@@ -7,4 +7,4 @@
 1. [Get your access token](https://instagram.pixelunion.net/)
 2. [Get your user ID](https://codeofaninja.com/tools/find-instagram-user-id)
 3. In your Instagram post description, include `[link: https://someurl.com]` with the url you want the post to redirect to
-...
+4. Access your post overview with working links at `https://post-links.netlify.com/your-username`
