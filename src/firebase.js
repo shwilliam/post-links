@@ -3,12 +3,11 @@ import app from 'firebase/app'
 import 'firebase/database'
 
 const config = {
-  apiKey: 'XXXX_XXXX',
-  authDomain: 'app-name.firebaseapp.com',
-  databaseURL: 'https://app-name.firebaseio.com',
-  projectId: 'app-name',
-  storageBucket: 'app-name.appspot.com',
-  messagingSenderId: 'XXXX'
+  apiKey: process.env.API_KEY,
+  authDomain: 'post-links.firebaseapp.com',
+  databaseURL: 'https://post-links.firebaseio.com',
+  projectId: 'post-links',
+  storageBucket: 'post-links.appspot.com'
 }
 
 export class Firebase {
