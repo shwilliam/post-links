@@ -1,0 +1,44 @@
+.small {
+  font-size: 0.6rem;
+}
+.ul {
+  text-decoration: underline;
+}
+.dib {
+  display: inline-block;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative
+}
+.fill {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.flex {
+  display: -webkit-flex;
+  display: flex;
+}
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+.bg-light {
+  background: rgba(255,255,255,.6);
+}
+.child-opacity-hover-container .child-opacity-hover {
+  opacity: 0;
+}
+.child-opacity-hover-container:hover .child-opacity-hover {
+  opacity: 1;
+}
+.t3 {
+  transition: all 0.3s ease-out;
+}
+.pa1 {
+  padding: 10px;
+}

@@ -1,9 +1,8 @@
 import React from 'react'
+import Reward from 'react-rewards'
 import PropTypes from 'prop-types'
 
-// TODO:
-// - validate inputs & notify user of requirements
-// - update success notification
+// TODO: validate inputs & notify user of requirements
 
 class NewOverviewForm extends React.Component {
   static propTypes = {
@@ -39,8 +38,7 @@ class NewOverviewForm extends React.Component {
     event.preventDefault()
     this.props.onSubmit(this.state.username, this.state.userID, this.state.accessToken)
 
-    this.setState({ username: '', userID: '', accessToken: '' })
-    alert('Wohoo! Your Instagram account was successfully added.')
+    this.reward.rewardMe()
   }
 
   render () {
@@ -48,7 +46,7 @@ class NewOverviewForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         {this.props.children}
         <label>
-          Username:
+            Username:
           <input
             type="text"
             value={this.state.username}
@@ -57,24 +55,30 @@ class NewOverviewForm extends React.Component {
           />
         </label>
         <label>
-          User ID:
+            User ID:
           <input
             type="text"
             value={this.state.userID}
             onChange={this.handleUserIdInput}
+            min="30"
             required
           />
         </label>
         <label>
-          Access token:
+            Access token:
           <input
             type="text"
             value={this.state.accessToken}
             onChange={this.handleAccessTokenInput}
+            min="5"
             required
           />
         </label>
         <button type="submit">Add</button>
+        <Reward
+          ref={(ref) => { this.reward = ref }}
+          type='confetti'
+        />
       </form>
     )
   }

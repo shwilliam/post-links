@@ -25,34 +25,53 @@ class Posts extends React.Component {
           userId: userInfo.userID,
           accessToken: userInfo.accessToken,
           template: `
-            <a class="post-link" data-caption="{{caption}}" href="/">
-              <img src="{{image}}" />
-            </a>
+            <figure class="dib relative child-opacity-hover-container">
+              <a class="post-link" data-caption="{{caption}}" href="/" target="_blank" rel="noopener noreferrer">
+                <img src="{{image}}"/>
+                <figcaption class="absolute fill flex flex-center child-opacity-hover bg-light t3 small pa1"></figcaption>
+              </a>
+            </figure>
           `
         })
         feed.run()
         setTimeout(() => {
-          this.makeLinks()
+          this.updateWithInstagramData()
         }, 2000)
       })
   }
 
-  makeLinks = () => {
+  updateWithInstagramData = () => {
     Array.from(document.getElementsByClassName('post-link'))
       .forEach(el => {
         const elLink = el.dataset.caption.match(/\[link: (.*?)\]/)
+        let elCaptionText = el.dataset.caption.replace(/\[link: (.*?)\]/, '').trim()
 
         if (elLink) {
           el.setAttribute('href', elLink[1])
+        }
+
+        const elCaption = el.getElementsByTagName('figcaption')[0]
+        const elImg = el.getElementsByTagName('img')[0]
+
+        if (elCaptionText.length > 60) {
+          elCaptionText = `${elCaptionText.substring(0, 60)}...`
+        }
+
+        elImg.setAttribute('alt', elCaptionText)
+
+        if (elCaption.innerText) {
+          elCaption.innerText = elCaptionText
+        } else {
+          elCaption.textContent = elCaptionText
         }
       })
   }
 
   render () {
     if (this.state.redirectHome === true) {
-      return <Redirect to='/' />
+      return <Redirect to="/" />
     }
-    return <main id='instafeed' role='main'></main>
+    return <main id="instafeed" role="main"></main>
   }
 }
 

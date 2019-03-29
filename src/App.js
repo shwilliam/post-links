@@ -7,7 +7,7 @@ import PostOverview from './pages/PostOverview'
 function App () {
   return (
     <Router>
-      <div id='app'>
+      <div id="app">
         <Route path="/" exact component={Index} />
         <Route path="/:username" component={PostOverview} />
       </div>
