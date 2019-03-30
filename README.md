@@ -17,9 +17,9 @@
 
 This app works on the latest versions of all major browsers!
 
-| Firefox   | Chrome   | IE    | Edge   |
-|:---------:|:--------:|:-----:|:------:|
-| ✅        | ✅      | ✅    | ✅    |
+| Firefox   | Chrome   | Opera   | IE    | Edge   |
+|:---------:|:--------:|:-------:|:-----:|:------:|
+| ✅        | ✅       | ✅     | ✅    | ✅    |
 
 ## Contributing
 
