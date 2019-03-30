@@ -2,6 +2,8 @@
 
 > Easily link to external pages from your Instagram posts
 
+![Sample overview](https://user-images.githubusercontent.com/38357771/55280205-65c36680-52df-11e9-951e-62ad3e8a8224.gif)
+
 ### **IMPORTANT NOTE**: Instagram has announced that they will be deprecating the API that this project relies on. This means that when that happens this app will break (until work to migrate to the new API is complete). For now, feel free to use this project as you wish!
 
 ## Instructions
